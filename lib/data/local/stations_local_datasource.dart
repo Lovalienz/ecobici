@@ -3,8 +3,9 @@ import 'package:hive/hive.dart';
 
 class StationsLocalDataSource {
   final Box box;
+  final Box recentBox;
 
-  StationsLocalDataSource(this.box);
+  StationsLocalDataSource(this.box, this.recentBox);
 
   Future<void> saveStations(List<StationResponse> stations) async {
     for (var station in stations) {
@@ -18,5 +19,13 @@ class StationsLocalDataSource {
     final end = start + size;
     if (start >= allStations.length) return [];
     return  allStations.sublist(start, end.clamp(0, allStations.length));
+  }
+
+   Future<void> saveRecentStation(StationResponse station) async {
+    await recentBox.put(station.id, station);
+  }
+
+  Future<List<StationResponse>> getRecentStations() async {
+    return recentBox.values.whereType<StationResponse>().toList();
   }
 }

@@ -4,14 +4,18 @@ import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 
 Future<void> locatorDataSources(GetIt getIt) async {
+  final box = await Hive.openBox('stationsBox');
+  final recentBox = await Hive.openBox('recentStationsBox');
 
-  final box = await Hive.openBox('stationsBox'); 
-
-  getIt.registerSingleton<Box>(box); // registra el box
+  getIt.registerSingleton<Box>(box, instanceName: 'stationsBox');
+  getIt.registerSingleton<Box>(recentBox, instanceName: 'recentStationsBox');
 
   getIt.registerLazySingleton<EcoBiciService>(() => EcoBiciService());
 
   getIt.registerLazySingleton<StationsLocalDataSource>(
-    () => StationsLocalDataSource(getIt<Box>()),
+    () => StationsLocalDataSource(
+      getIt<Box>(instanceName: 'stationsBox'),
+      getIt<Box>(instanceName: 'recentStationsBox'),
+    ),
   );
 }

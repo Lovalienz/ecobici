@@ -2,6 +2,7 @@ import 'package:ecobici/core/result.dart';
 import 'package:ecobici/data/local/stations_local_datasource.dart';
 import 'package:ecobici/data/remote/dtos/mappers/network_mappers/network_mappers.dart';
 import 'package:ecobici/data/remote/ecobici_service.dart';
+import 'package:ecobici/domain/mappers/station_to_response.dart';
 import 'package:ecobici/domain/models/network_model.dart';
 import 'package:ecobici/domain/repository/stations_repository.dart';
 
@@ -32,5 +33,17 @@ class StationsRepositoryImpl extends StationsRepository {
   Future<List<Station>> getStationsFromLocal(int page, int size) async {
     final responseList = await localDataSource.getStations(page: page, size: size);
     return responseList.map((stationResponse) => stationResponse.toDomain()).toList();
+  }
+
+    @override
+  Future<void> saveRecentViewedStation(Station station) async {
+    final stationResponse = StationDomainMapper.fromDomain(station);
+    await localDataSource.saveRecentStation(stationResponse);
+  }
+
+  @override
+  Future<List<Station>> getRecentViewedStations() async {
+    final recent = await localDataSource.getRecentStations();
+    return recent.map((stationResponse) => stationResponse.toDomain()).toList();
   }
 }
