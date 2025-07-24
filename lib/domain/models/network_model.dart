@@ -50,15 +50,9 @@ class Location {
   });
 
   factory Location.empty() {
-    return Location(
-      latitude: "0.0",
-      longitude: "0.0",
-      city: "",
-      country: "",
-    );
+    return Location(latitude: "0.0", longitude: "0.0", city: "", country: "");
   }
 }
-
 
 class Station {
   final String id;

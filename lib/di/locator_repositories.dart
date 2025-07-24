@@ -5,8 +5,10 @@ import 'package:ecobici/domain/repository/stations_repository.dart';
 import 'package:get_it/get_it.dart';
 
 void locatorRepositories(GetIt getIt) {
-  getIt.registerLazySingleton<StationsRepository>(() => StationsRepositoryImpl(
-    remoteDataSource: getIt<EcoBiciService>(),
-    localDataSource: getIt<StationsLocalDataSource>(),
-  ));
+  getIt.registerLazySingleton<StationsRepository>(
+    () => StationsRepositoryImpl(
+      remoteDataSource: getIt<EcoBiciService>(),
+      localDataSource: getIt<StationsLocalDataSource>(),
+    ),
+  );
 }

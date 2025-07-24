@@ -65,10 +65,14 @@ class ElasticListView extends StatefulWidget {
     this.enableDragScrolling = true,
     this.elasticityFactor = 4,
     this.separatorBuilder,
-  })  : assert(elasticityFactor >= 0,
-            'Elasticity factor must be greater than or equal to 0.'),
-        assert(animationDuration >= const Duration(milliseconds: 100),
-            'Animation duration should be greater than or equal to 100 ms for optimal user experience.');
+  }) : assert(
+         elasticityFactor >= 0,
+         'Elasticity factor must be greater than or equal to 0.',
+       ),
+       assert(
+         animationDuration >= const Duration(milliseconds: 100),
+         'Animation duration should be greater than or equal to 100 ms for optimal user experience.',
+       );
 
   ElasticListView({
     Key? key,
@@ -99,66 +103,34 @@ class ElasticListView extends StatefulWidget {
     bool enableDragScrolling = true,
     int elasticityFactor = 4,
   }) : this._base(
-          key: key,
-          scrollDirection: scrollDirection,
-          reverse: reverse,
-          controller: controller,
-          primary: primary,
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          padding: padding,
-          itemExtent: itemExtent,
-          itemExtentBuilder: itemExtentBuilder,
-          prototypeItem: prototypeItem,
-          itemBuilder: (_, int index) => children[index],
-          findChildIndexCallback: findChildIndexCallback,
-          itemCount: children.length,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-          addRepaintBoundaries: addRepaintBoundaries,
-          addSemanticIndexes: addSemanticIndexes,
-          cacheExtent: cacheExtent,
-          semanticChildCount: semanticChildCount,
-          dragStartBehavior: dragStartBehavior,
-          keyboardDismissBehavior: keyboardDismissBehavior,
-          restorationId: restorationId,
-          clipBehavior: clipBehavior,
-          curve: curve,
-          animationDuration: animationDuration,
-          enableDragScrolling: enableDragScrolling,
-          elasticityFactor: elasticityFactor,
-        );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         key: key,
+         scrollDirection: scrollDirection,
+         reverse: reverse,
+         controller: controller,
+         primary: primary,
+         physics: physics,
+         shrinkWrap: shrinkWrap,
+         padding: padding,
+         itemExtent: itemExtent,
+         itemExtentBuilder: itemExtentBuilder,
+         prototypeItem: prototypeItem,
+         itemBuilder: (_, int index) => children[index],
+         findChildIndexCallback: findChildIndexCallback,
+         itemCount: children.length,
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+         addRepaintBoundaries: addRepaintBoundaries,
+         addSemanticIndexes: addSemanticIndexes,
+         cacheExtent: cacheExtent,
+         semanticChildCount: semanticChildCount,
+         dragStartBehavior: dragStartBehavior,
+         keyboardDismissBehavior: keyboardDismissBehavior,
+         restorationId: restorationId,
+         clipBehavior: clipBehavior,
+         curve: curve,
+         animationDuration: animationDuration,
+         enableDragScrolling: enableDragScrolling,
+         elasticityFactor: elasticityFactor,
+       );
 
   const ElasticListView.builder({
     Key? key,
@@ -190,69 +162,34 @@ class ElasticListView extends StatefulWidget {
     bool enableDragScrolling = true,
     int elasticityFactor = 4,
   }) : this._base(
-          key: key,
-          scrollDirection: scrollDirection,
-          reverse: reverse,
-          controller: controller,
-          primary: primary,
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          padding: padding,
-          itemExtent: itemExtent,
-          itemExtentBuilder: itemExtentBuilder,
-          prototypeItem: prototypeItem,
-          itemBuilder: itemBuilder,
-          findChildIndexCallback: findChildIndexCallback,
-          itemCount: itemCount,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-          addRepaintBoundaries: addRepaintBoundaries,
-          addSemanticIndexes: addSemanticIndexes,
-          cacheExtent: cacheExtent,
-          semanticChildCount: semanticChildCount,
-          dragStartBehavior: dragStartBehavior,
-          keyboardDismissBehavior: keyboardDismissBehavior,
-          restorationId: restorationId,
-          clipBehavior: clipBehavior,
-          curve: curve,
-          animationDuration: animationDuration,
-          enableDragScrolling: enableDragScrolling,
-          elasticityFactor: elasticityFactor,
-        );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         key: key,
+         scrollDirection: scrollDirection,
+         reverse: reverse,
+         controller: controller,
+         primary: primary,
+         physics: physics,
+         shrinkWrap: shrinkWrap,
+         padding: padding,
+         itemExtent: itemExtent,
+         itemExtentBuilder: itemExtentBuilder,
+         prototypeItem: prototypeItem,
+         itemBuilder: itemBuilder,
+         findChildIndexCallback: findChildIndexCallback,
+         itemCount: itemCount,
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+         addRepaintBoundaries: addRepaintBoundaries,
+         addSemanticIndexes: addSemanticIndexes,
+         cacheExtent: cacheExtent,
+         semanticChildCount: semanticChildCount,
+         dragStartBehavior: dragStartBehavior,
+         keyboardDismissBehavior: keyboardDismissBehavior,
+         restorationId: restorationId,
+         clipBehavior: clipBehavior,
+         curve: curve,
+         animationDuration: animationDuration,
+         enableDragScrolling: enableDragScrolling,
+         elasticityFactor: elasticityFactor,
+       );
 
   const ElasticListView.separated({
     Key? key,
@@ -285,35 +222,35 @@ class ElasticListView extends StatefulWidget {
     int elasticityFactor = 4,
     required IndexedWidgetBuilder separatorBuilder,
   }) : this._base(
-          key: key,
-          scrollDirection: scrollDirection,
-          reverse: reverse,
-          controller: controller,
-          primary: primary,
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          padding: padding,
-          itemExtent: itemExtent,
-          itemExtentBuilder: itemExtentBuilder,
-          prototypeItem: prototypeItem,
-          itemBuilder: itemBuilder,
-          findChildIndexCallback: findChildIndexCallback,
-          itemCount: itemCount,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-          addRepaintBoundaries: addRepaintBoundaries,
-          addSemanticIndexes: addSemanticIndexes,
-          cacheExtent: cacheExtent,
-          semanticChildCount: semanticChildCount,
-          dragStartBehavior: dragStartBehavior,
-          keyboardDismissBehavior: keyboardDismissBehavior,
-          restorationId: restorationId,
-          clipBehavior: clipBehavior,
-          curve: curve,
-          animationDuration: animationDuration,
-          enableDragScrolling: enableDragScrolling,
-          elasticityFactor: elasticityFactor,
-          separatorBuilder: separatorBuilder,
-        );
+         key: key,
+         scrollDirection: scrollDirection,
+         reverse: reverse,
+         controller: controller,
+         primary: primary,
+         physics: physics,
+         shrinkWrap: shrinkWrap,
+         padding: padding,
+         itemExtent: itemExtent,
+         itemExtentBuilder: itemExtentBuilder,
+         prototypeItem: prototypeItem,
+         itemBuilder: itemBuilder,
+         findChildIndexCallback: findChildIndexCallback,
+         itemCount: itemCount,
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+         addRepaintBoundaries: addRepaintBoundaries,
+         addSemanticIndexes: addSemanticIndexes,
+         cacheExtent: cacheExtent,
+         semanticChildCount: semanticChildCount,
+         dragStartBehavior: dragStartBehavior,
+         keyboardDismissBehavior: keyboardDismissBehavior,
+         restorationId: restorationId,
+         clipBehavior: clipBehavior,
+         curve: curve,
+         animationDuration: animationDuration,
+         enableDragScrolling: enableDragScrolling,
+         elasticityFactor: elasticityFactor,
+         separatorBuilder: separatorBuilder,
+       );
 
   @override
   ElasticListViewState createState() => ElasticListViewState();
@@ -321,21 +258,15 @@ class ElasticListView extends StatefulWidget {
 
 class ElasticListViewState extends State<ElasticListView>
     with SingleTickerProviderStateMixin {
-
   late AnimationController _controller;
-
 
   late ScrollController _scrollController;
 
-
   double _elasticity = 1.0;
-
 
   double _previousOffset = 0.0;
 
-
   DateTime _previousTimestamp = DateTime.now();
-
 
   double get elasticity => _elasticity;
 
@@ -360,19 +291,13 @@ class ElasticListViewState extends State<ElasticListView>
     super.dispose();
   }
 
-
-
-
-
-
   EdgeInsets get _padding => widget.scrollDirection == Axis.vertical
       ? EdgeInsets.symmetric(
-          vertical: (elasticity - 1) * widget.elasticityFactor)
+          vertical: (elasticity - 1) * widget.elasticityFactor,
+        )
       : EdgeInsets.symmetric(
-          horizontal: (elasticity - 1) * widget.elasticityFactor);
-
-
-
+          horizontal: (elasticity - 1) * widget.elasticityFactor,
+        );
 
   ScrollBehavior get _scrollBehavior => widget.enableDragScrolling
       ? DragScrollBehavior()
@@ -431,15 +356,14 @@ class ElasticListViewState extends State<ElasticListView>
     );
   }
 
-
-
   Widget _separatorBuilder(BuildContext context, int index) =>
       _itemBuilder(context, index, true);
 
-
-
-  Widget _itemBuilder(BuildContext context, int index,
-      [bool isSeparator = false]) {
+  Widget _itemBuilder(
+    BuildContext context,
+    int index, [
+    bool isSeparator = false,
+  ]) {
     // Determine whether to use separatorBuilder or itemBuilder based on isSeparator flag.
     final child = isSeparator
         ? widget.separatorBuilder!(context, index)
@@ -453,14 +377,6 @@ class ElasticListViewState extends State<ElasticListView>
       child: child,
     );
   }
-
-
-
-
-
-
-
-
 
   void _handleScroll() {
     // Given the variability in scroll event handling across devices, this condition
@@ -476,8 +392,9 @@ class ElasticListViewState extends State<ElasticListView>
       _resetElasticity();
     } else {
       // Calculate overscroll and simulate elastic behavior
-      final overscroll =
-          ElasticListViewUtils.calculateOverscroll(_scrollController);
+      final overscroll = ElasticListViewUtils.calculateOverscroll(
+        _scrollController,
+      );
       final simulation = ElasticListViewUtils.calculateSimulation(overscroll);
 
       // Animate the controller with the calculated simulation
@@ -487,15 +404,6 @@ class ElasticListViewState extends State<ElasticListView>
       _updateElasticity();
     }
   }
-
-
-
-
-
-
-
-
-
 
   bool _notificationHandler(UserScrollNotification notification) {
     if (notification.direction == ScrollDirection.idle &&
@@ -507,10 +415,6 @@ class ElasticListViewState extends State<ElasticListView>
     return false;
   }
 
-
-
-
-
   void _resetElasticity() {
     setState(() {
       // Set the controller's value to 0.0 to reset elasticity
@@ -520,18 +424,6 @@ class ElasticListViewState extends State<ElasticListView>
       _elasticity = 1.0;
     });
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
   void _updateElasticity() {
     // Get the current timestamp
@@ -554,8 +446,10 @@ class ElasticListViewState extends State<ElasticListView>
       _previousTimestamp = now;
 
       // Calculate the elasticity based on the controller and scroll speed
-      _elasticity =
-          ElasticListViewUtils.calculateElasticity(_controller, scrollSpeed);
+      _elasticity = ElasticListViewUtils.calculateElasticity(
+        _controller,
+        scrollSpeed,
+      );
 
       // Trigger a widget update to reflect the changes in elasticity
       setState(() {});

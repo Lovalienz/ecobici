@@ -13,15 +13,18 @@ class StationsLocalDataSource {
     }
   }
 
-  Future<List<StationResponse>> getStations({required int page, required int size}) async {
+  Future<List<StationResponse>> getStations({
+    required int page,
+    required int size,
+  }) async {
     final allStations = box.values.whereType<StationResponse>().toList();
     final start = page * size;
     final end = start + size;
     if (start >= allStations.length) return [];
-    return  allStations.sublist(start, end.clamp(0, allStations.length));
+    return allStations.sublist(start, end.clamp(0, allStations.length));
   }
 
-   Future<void> saveRecentStation(StationResponse station) async {
+  Future<void> saveRecentStation(StationResponse station) async {
     await recentBox.put(station.id, station);
   }
 

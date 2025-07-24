@@ -26,22 +26,22 @@ class StationsViewModel extends ChangeNotifier {
   List<Station> _recentViewed = [];
   List<Station> get recentViewed => _recentViewed;
 
-  StationsViewModel( {
+  StationsViewModel({
     required this.getLocalStations,
     required this.getRemoteStations,
-    required this.getRecentViewed, 
+    required this.getRecentViewed,
     required this.saveRecentViewed,
   }) {
     fetchRemoteStations();
   }
 
- void selectStation(Station station) async {
-  await saveRecentViewed(station);
-  final recents = await getRecentViewed();
-  _recentViewed = recents.reversed.toList();
-  _selectedStation = station;
-  notifyListeners();
-}
+  void selectStation(Station station) async {
+    await saveRecentViewed(station);
+    final recents = await getRecentViewed();
+    _recentViewed = recents.reversed.toList();
+    _selectedStation = station;
+    notifyListeners();
+  }
 
   void clearSelectedStation() {
     _selectedStation = null;
@@ -60,16 +60,16 @@ class StationsViewModel extends ChangeNotifier {
   }
 
   void filterStationsByName(String query) {
-  _filteredStations = stations.where((station) {
-    return station.name.toLowerCase().contains(query.toLowerCase());
-  }).toList();
-  notifyListeners();
-}
+    _filteredStations = stations.where((station) {
+      return station.name.toLowerCase().contains(query.toLowerCase());
+    }).toList();
+    notifyListeners();
+  }
 
-void resetStationFilter() {
-  _filteredStations = stations;
-  notifyListeners();
-}
+  void resetStationFilter() {
+    _filteredStations = stations;
+    notifyListeners();
+  }
 
   Future<void> fetchRemoteStations() async {
     _setLoading(true);

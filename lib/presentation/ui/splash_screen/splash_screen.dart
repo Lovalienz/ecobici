@@ -9,9 +9,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen>
-    with
-        TickerProviderStateMixin 
-        {
+    with TickerProviderStateMixin {
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
 
@@ -23,27 +21,29 @@ class SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _scaleController = AnimationController(duration: const Duration(milliseconds: 300), vsync: this);
-    _scaleAnimation = Tween<double>(
-      begin: 0.8,
-      end: 1.5,
-    ).animate(CurvedAnimation(parent: _scaleController, curve: Curves.easeInOut));
+    _scaleController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.5).animate(
+      CurvedAnimation(parent: _scaleController, curve: Curves.easeInOut),
+    );
 
-    _moveFadeController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
-    _fadeAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.0,
-    ).animate(CurvedAnimation(parent: _moveFadeController, curve: Curves.easeOut));
-    _moveUpAnimation = Tween<double>(
-      begin: 0.0,
-      end: -200.0,
-    ).animate(CurvedAnimation(parent: _moveFadeController, curve: Curves.easeOut));
+    _moveFadeController = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+    _fadeAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(parent: _moveFadeController, curve: Curves.easeOut),
+    );
+    _moveUpAnimation = Tween<double>(begin: 0.0, end: -200.0).animate(
+      CurvedAnimation(parent: _moveFadeController, curve: Curves.easeOut),
+    );
 
     _startSplashFlow();
   }
 
   Future<void> _startSplashFlow() async {
-
     await Future.delayed(const Duration(milliseconds: 800));
 
     await _scaleController.forward();
@@ -72,7 +72,10 @@ class SplashScreenState extends State<SplashScreen>
               scale: _scaleAnimation.value,
               child: Opacity(
                 opacity: _fadeAnimation.value,
-                child: Transform.translate(offset: Offset(0, _moveUpAnimation.value), child: child),
+                child: Transform.translate(
+                  offset: Offset(0, _moveUpAnimation.value),
+                  child: child,
+                ),
               ),
             );
           },

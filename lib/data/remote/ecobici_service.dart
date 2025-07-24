@@ -15,7 +15,9 @@ class EcoBiciService {
         final networkResponse = NetworkResponse.fromJson(jsonData);
         return Success(networkResponse);
       } else {
-        return Failure('Error ${response.statusCode}: ${response.reasonPhrase}');
+        return Failure(
+          'Error ${response.statusCode}: ${response.reasonPhrase}',
+        );
       }
     } catch (e) {
       return Failure('Excepción: $e');

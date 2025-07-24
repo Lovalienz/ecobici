@@ -31,11 +31,16 @@ class StationsRepositoryImpl extends StationsRepository {
 
   @override
   Future<List<Station>> getStationsFromLocal(int page, int size) async {
-    final responseList = await localDataSource.getStations(page: page, size: size);
-    return responseList.map((stationResponse) => stationResponse.toDomain()).toList();
+    final responseList = await localDataSource.getStations(
+      page: page,
+      size: size,
+    );
+    return responseList
+        .map((stationResponse) => stationResponse.toDomain())
+        .toList();
   }
 
-    @override
+  @override
   Future<void> saveRecentViewedStation(Station station) async {
     final stationResponse = StationDomainMapper.fromDomain(station);
     await localDataSource.saveRecentStation(stationResponse);
