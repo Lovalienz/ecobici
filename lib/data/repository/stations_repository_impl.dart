@@ -29,8 +29,8 @@ class StationsRepositoryImpl extends StationsRepository {
   }
 
   @override
-  List<Station> getStationsFromLocal(int page, int size) {
-    final stationEntities = localDataSource.getStations(page: page, size: size);
-    return stationEntities.map(StationMapper.fromEntity).toList();
+  Future<List<Station>> getStationsFromLocal(int page, int size) async {
+    final responseList = await localDataSource.getStations(page: page, size: size);
+    return responseList.map((stationResponse) => stationResponse.toDomain()).toList();
   }
 }

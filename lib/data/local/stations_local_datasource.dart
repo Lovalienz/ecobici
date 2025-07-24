@@ -16,11 +16,11 @@ class StationsLocalDataSource {
     }
   }
 
-  List<StationResponse> getStations({required int page, required int size}) {
+  Future<List<StationResponse>> getStations({required int page, required int size}) async {
     final allStations = box.values.whereType<StationResponse>().toList();
     final start = page * size;
     final end = start + size;
     if (start >= allStations.length) return [];
-    return allStations.sublist(start, end.clamp(0, allStations.length));
+    return  allStations.sublist(start, end.clamp(0, allStations.length));
   }
 }

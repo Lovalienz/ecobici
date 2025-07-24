@@ -6,7 +6,7 @@ class GetStationsiUseCase {
 
   GetStationsiUseCase(this.repository);
 
-  Future<Network> call(String networkId) async {
+  Future<List<Station>> call(String networkId) async {
     return await repository.getStations(networkId);
   }
 }
