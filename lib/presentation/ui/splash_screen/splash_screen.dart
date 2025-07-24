@@ -5,10 +5,10 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends State<SplashScreen>
     with
         TickerProviderStateMixin 
         {
@@ -50,6 +50,7 @@ class _SplashScreenState extends State<SplashScreen>
     await _scaleController.reverse();
     await _moveFadeController.forward();
 
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacementNamed(context, '/stations');
   }
 

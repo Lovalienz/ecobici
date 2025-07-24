@@ -70,34 +70,6 @@ class ElasticListView extends StatefulWidget {
         assert(animationDuration >= const Duration(milliseconds: 100),
             'Animation duration should be greater than or equal to 100 ms for optimal user experience.');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ElasticListView({
     Key? key,
     Axis scrollDirection = Axis.vertical,

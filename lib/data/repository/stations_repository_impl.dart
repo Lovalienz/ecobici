@@ -19,7 +19,7 @@ class StationsRepositoryImpl extends StationsRepository {
     final result = await remoteDataSource.getEcoBiciData();
     switch (result) {
       case Success(:final data):
-        localDataSource.saveNetwork(data);
+        localDataSource.saveStations(data.network.stations);
         return Success(data.network.toDomain());
       case Failure(:final message):
         return Failure(message);

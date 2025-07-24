@@ -1,3 +1,4 @@
+import 'package:ecobici/core/result.dart';
 import 'package:ecobici/domain/models/network_model.dart';
 import 'package:ecobici/domain/repository/stations_repository.dart';
 
@@ -6,7 +7,7 @@ class GetStationsiUseCase {
 
   GetStationsiUseCase(this.repository);
 
-  Future<List<Station>> call(String networkId) async {
-    return await repository.getStations(networkId);
+  Future<Result<Stations>> call() async {
+    return await repository.getStations();
   }
 }

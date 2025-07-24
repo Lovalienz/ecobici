@@ -6,10 +6,6 @@ class StationsLocalDataSource {
 
   StationsLocalDataSource(this.box);
 
-  Future<void> saveNetwork(NetworkResponse network) async {
-    await box.put('network', network);
-  }
-
   Future<void> saveStations(List<StationResponse> stations) async {
     for (var station in stations) {
       await box.put(station.id, station);
